@@ -15,7 +15,7 @@ namespace MoodAnalyser
             //UC-1 Given a massage, ability to analyse  and respond happy or sad mood
             Console.WriteLine("Welcome to Mood Analyser");
 
-            MoodAnalyser moodAnalyser = new MoodAnalyser("i am sad");
+            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
             Console.WriteLine(moodAnalyser.Analyse());
 
             Console.ReadLine();

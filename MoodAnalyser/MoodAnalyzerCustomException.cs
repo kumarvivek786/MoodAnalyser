@@ -16,6 +16,7 @@ namespace MoodAnalyser
             NO_SUCH_FIELD,
             NO_SUCH_METHOD,
             NO_SUCH_CLASS,
+            EMPTY_MSG,
         }
 
         public ExceptionType Type;

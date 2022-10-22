@@ -17,12 +17,16 @@ namespace MoodAnalyser
         {
             try
             {
-                if (message == null)
+                if (message ==null)
                 {
-                    throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood can not be Empty");
+                    throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood can not be NUll");
+                }
+                else if (message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");
                 }
 
-                    if (message.ToLower().Contains("sad"))
+                if (message.ToLower().Contains("sad"))
                 {
                     return "sad";
                 }
@@ -33,9 +37,8 @@ namespace MoodAnalyser
             }
             catch (MoodAnalyzerCustomException e)
             {
-                
-                return e.Message;
-
+                string exception = e.Message;
+                return exception;
             }
         }
     }

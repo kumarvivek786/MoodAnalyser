@@ -34,13 +34,28 @@ namespace MoodAnalyser
             Assert.AreEqual("happy", Actual);
 
         }
-        [TestMethod]
-        public void ShouldReturnHappyMoodWhenMessageIsNull()
-        {
+        //[TestMethod]
+        //public void ShouldReturnHappyMoodWhenMessageIsNull()
+        //{
 
-            MoodAnalyser moodAnalyzer = new MoodAnalyser(null);
-            string result = moodAnalyzer.Analyse();
-            Assert.AreEqual("happy", result);
+        //    MoodAnalyser moodAnalyzer = new MoodAnalyser(null);
+        //    string result = moodAnalyzer.Analyse();
+        //    Assert.AreEqual("happy", result);
+        //}
+        [TestMethod]
+        public void GivenNull_AnalyseMood_ReturnHappyMood()
+        {
+            try
+            {
+
+                MoodAnalyser mood = new MoodAnalyser("");
+
+                string acualResult = mood.Analyse();
+            }
+            catch (MoodAnalyzerCustomException exc)
+            {
+                Assert.AreEqual("Mood can not be Empty", exc.Message);
+            }
         }
     }
 }

@@ -19,9 +19,10 @@ namespace MoodAnalyser
             {
                 if (message == null)
                 {
-                    return "happy";
+                    throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood can not be Empty");
                 }
-                else if (message.ToLower().Contains("sad"))
+
+                    if (message.ToLower().Contains("sad"))
                 {
                     return "sad";
                 }
@@ -30,9 +31,11 @@ namespace MoodAnalyser
                     return "happy";
                 }
             }
-            catch
+            catch (MoodAnalyzerCustomException e)
             {
-                return "happy";
+                
+                return e.Message;
+
             }
         }
     }
